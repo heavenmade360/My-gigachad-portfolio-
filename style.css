@@ -1,0 +1,235 @@
+:root {
+    --primary: #2563eb;
+    --accent: #ffffff;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Smooth Scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    cursor: none;
+    font-family: "Poiret One", sans-serif;
+    font-weight: 400; /* Poiret One looks best when thin/elegant */
+    margin: 0;
+    line-height: 1.6;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url("https://i.pinimg.com/originals/60/e1/c3/60e1c3dfcc9e37a457875a1c3344066e.gif");
+                background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps background still while scrolling */
+}
+
+/* Navigation - Now more balanced */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .logo {
+    font-size: 28px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+nav .links a {
+    font-size: 18px;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+nav .links a:hover {
+    opacity: 1;
+    text-shadow: 0 0 10px white;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 10%;
+}
+
+.hero p {
+    font-size: clamp(24px, 5vw, 48px); /* Responsive text size */
+    max-width: 800px;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+/* Button Styling */
+.btn {
+    padding: 12px 30px;
+    border: 1px solid white !important;
+    background: transparent !important;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: white !important;
+    color: black !important;
+    box-shadow: 0 0 20px rgba(255,255,255,0.4);
+}
+
+/* Portfolio Grid */
+.projects { 
+    padding: 8rem 10%; 
+    background: rgba(0,0,0,0.3);
+}
+
+.projects h2 {
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 10px;
+    margin-bottom: 4rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+/* Glassmorphism Cards */
+.card {
+    background: var(--glass);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--glass-border);
+    padding: 0; /* Remove padding to make image flush */
+    border-radius: 0; /* Sharp corners look more "designer" */
+    transition: transform 0.4s ease, background 0.4s ease;
+    overflow: hidden;
+}
+.card a {
+    text-decoration: none;color: aqua;text-align: center;align-content: center;justify-content: center;
+    padding: 0 1.5rem;
+}
+.card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    filter: grayscale(100%); /* Cool designer effect */
+    transition: 0.5s ease;
+}
+
+.card:hover img {
+    filter: grayscale(0%); /* Color returns on hover */
+}
+
+.card h3, .card p {
+    padding: 0 1.5rem;
+    letter-spacing: 2px;
+}
+.creators img {
+    width: 150px;
+    height: 150px;
+    background: #eee;
+    border-radius: 50%; /* Makes the photo a circle */
+    margin: 0 auto 20px;
+    filter: grayscale(100%);
+    transition: 0.3s;position: sticky;bottom: 0;
+}
+.creators img:hover {
+    filter: grayscale(0%);
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid var(--glass-border);
+    letter-spacing: 2px;
+}
+.social-links a {
+  color: #fff;
+  font-size: 20px;
+  margin-right: 15px;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: #00ffd5;
+}
+/* The initial state of elements before they appear */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+/* The state when the element is visible */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hide the default cursor for a cleaner look */
+
+
+/* The small center dot */
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: white;
+}
+
+/* The larger trailing circle */
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.cursor-dot,
+.cursor-outline {
+    pointer-events: none; /* Crucial: lets you click through the cursor */
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    transition: transform 0.1s ease-out, background-color 0.3s, width 0.3s, height 0.3s;
+}
+
+/* Hover effect: When the user hovers over a link or button */
+.cursor-active {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+  .cursor-dot,
+  .cursor-outline {
+    display: none;
+  }
+}

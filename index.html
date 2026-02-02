@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zangi</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><strong>jerome</strong></div>
+        <div class="links">
+            <a href="#work" style="margin-left:20px; text-decoration:none; color:inherit;">Work</a>
+            <a href="#contact" style="margin-left:20px; text-decoration:none; color:inherit;">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+      <p> 
+        <br>  Hi, I'm Zangi, a developer that helps <br>brands grow through clean code<br>
+         and intentional design.</p>
+        <a href="#work" class="btn" style="text-decoration: none; font-size: 16px; border: solid 1px #ddd;background-color: #1f2937;">View My Work</a>
+    </header>
+    <section class="team-section container">
+        <h2 class="center-text" style="text-align: center;
+    font-size: 40px;
+    letter-spacing: 10px;
+    margin-bottom: 4rem;">Meet the Innovators</h2>
+        <div class="creators" style="width: 150px;
+    height: 150px;
+    background: #eee;
+    border-radius: 50%; /* Makes the photo a circle */
+    margin: 0 auto 20px;">
+            <img src="freelancer pro/cars/ferrari.jpg"
+    >
+            <h2>jerome</h2>
+        </div>
+
+    <section id="work" class="projects">
+        <h2>SHOWCASE</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://www.early.works/images/badchef.webp ">
+                <h3>1ST PROJECT</h3>
+                <p>A fast paced card game of delicious deception. </p>
+                <a href="freelancer pro/index.html"> read more</a>
+            </div>
+            <div class="card">
+                <img src=" https://www.early.works/images/north.webp">
+                 <h3>2ND PROJECT</h3>
+                <p>.....</p>
+            </div>
+            <div class="card">
+                <img src="https://www.early.works/images/berry.webp">
+                <h3>3RD PROJECT</h3>
+                <p>.....</p>
+            </div>
+        <div class="card">
+                            <img src=" https://www.early.works/images/north.webp">
+
+<h3>4TH PROJECT</h3>
+        </div>
+
+        <div class="card">
+                            <img src=" https://www.early.works/images/north.webp">
+
+<h3>5TH PROJECT</h3>
+        </div>
+        <div class="card">
+                            <img src=" https://www.early.works/images/north.webp">
+
+<h3>6TH PROJECT</h3>
+        </div>
+
+
+    </section>
+
+<section>
+
+
+</section>
+
+<div class="cursor-dot"></div>
+
+<div class="cursor-outline"></div>
+
+    <footer id="contact" style="text-align:center; padding: 4rem; background: #1b1b1b;; color: white;">
+        <h2>Let's work together</h2>
+        <p>Email: zangi@gmail.com
+           <BR> ALL RIGHTS RESERVED
+        </p>
+        
+          <div class="social-links">
+  <a href="https://facebook.com" target="_blank">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://instagram.com" target="_blank">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://twitter.com" target="_blank">
+    <i class="fab fa-x-twitter"></i>
+  </a>
+  <a href="https://linkedin.com" target="_blank">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+</div>
+    </footer>
+<script>
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1 }); // Triggers when 10% of the element is visible
+
+// Select all cards and headers to reveal
+document.querySelectorAll('.card, .projects h2, footer, nav, .hero, .creators').forEach((el) => {
+    el.classList.add('reveal');
+    observer.observe(el);
+});
+const dot = document.querySelector(".cursor-dot");
+const outline = document.querySelector(".cursor-outline");
+
+window.addEventListener("mousemove", (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    // Direct follow for the dot
+    dot.style.left = `${posX}px`;
+    dot.style.top = `${posY}px`;
+
+    // Slight delay for the outline to create a "trailing" effect
+    outline.animate({
+        left: `${posX}px`,
+        top: `${posY}px`
+    }, { duration: 500, fill: "forwards" });
+});
+
+// Add hover effect for all links and buttons
+const links = document.querySelectorAll("a, .btn, .card");
+links.forEach(link => {
+    link.addEventListener("mouseenter", () => {
+        outline.classList.add("cursor-active");
+    });
+    link.addEventListener("mouseleave", () => {
+        outline.classList.remove("cursor-active");
+    });
+});
+</script>
+</body>
+</html>

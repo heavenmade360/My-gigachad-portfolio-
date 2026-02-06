@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zangi</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,44 +21,37 @@
     </nav>
 
     <header class="hero">
-      <p> 
+      
+        <div class="pfp">
+  <img src="images/me.jpg" alt="Profile picture">
+</div>
         <br>  Hi, I'm Zangi, a developer that helps <br>brands grow through clean code<br>
          and intentional design.</p>
         <a href="#work" class="btn" style="text-decoration: none; font-size: 16px; border: solid 1px #ddd;background-color: #1f2937;">View My Work</a>
     </header>
-    <section class="team-section container">
-        <h2 class="center-text" style="text-align: center;
-    font-size: 40px;
-    letter-spacing: 10px;
-    margin-bottom: 4rem;">Meet the Innovators</h2>
-        <div class="creators" style="width: 150px;
-    height: 150px;
-    background: #eee;
-    border-radius: 50%; /* Makes the photo a circle */
-    margin: 0 auto 20px;">
-            <img src="freelancer pro/cars/ferrari.jpg"
-    >
-            <h2>jerome</h2>
+    
+            
+                
         </div>
 
     <section id="work" class="projects">
         <h2>SHOWCASE</h2>
         <div class="grid">
             <div class="card">
-                <img src="https://www.early.works/images/badchef.webp ">
+                <img src="">
                 <h3>1ST PROJECT</h3>
-                <p>This is a case study </p>
+                <p>manufacturing website </p>
                 <a href="freelancer pro/index.html"> read more</a>
             </div>
             <div class="card">
                 <img src=" https://www.early.works/images/north.webp">
                  <h3>2ND PROJECT</h3>
-                <p> coming soon...</p>
+                <p>coming soon..</p>
             </div>
             <div class="card">
                 <img src="https://www.early.works/images/berry.webp">
                 <h3>3RD PROJECT</h3>
-                <p>coming soon...</p>
+                <p>coming soon..</p>
             </div>
         <div class="card">
                             <img src=" https://www.early.works/images/north.webp">
@@ -68,7 +61,7 @@
 
         <div class="card">
                             <img src=" https://www.early.works/images/north.webp">
-
+<p>coming soon..</p>
 <h3>5TH PROJECT</h3>
         </div>
         <div class="card">
@@ -93,6 +86,7 @@
         <h2>Let's work together</h2>
         <p>Email: zangi@gmail.com
            <BR> ALL RIGHTS RESERVED
+               number -0765978078
         </p>
         
           <div class="social-links">
@@ -115,12 +109,13 @@
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
+        } else {
+            entry.target.classList.remove('active'); // 👈 ADD THIS
         }
     });
-}, { threshold: 0.1 }); // Triggers when 10% of the element is visible
-
+}, { threshold: 0.1 });
 // Select all cards and headers to reveal
-document.querySelectorAll('.card, .projects h2, footer, nav, .hero, .creators').forEach((el) => {
+document.querySelectorAll('.card, .projects h2, footer, nav, .hero ').forEach((el) => {
     el.classList.add('reveal');
     observer.observe(el);
 });
